@@ -1,0 +1,14 @@
+version: '3'
+tasks:
+  install-cli:
+    cmds:
+      - npm install --save-dev tfx-cli
+  setup:
+    cmds:
+      - npm install
+  default: 
+    deps:
+      - install-cli
+      - setup
+    cmds:
+      - npx tfx extension create --manifest-globs vss-extension.json

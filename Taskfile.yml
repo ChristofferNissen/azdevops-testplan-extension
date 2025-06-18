@@ -1,12 +1,15 @@
-version: '3'
+version: "3"
 tasks:
   install-cli:
     cmds:
       - npm install --save-dev tfx-cli
   setup:
     cmds:
-      - npm install
-  default: 
+      - |
+        cd PublishTestPlanResultsV1
+        npm install
+        nix-shell -p typescript --command 'tsc'
+  default:
     deps:
       - install-cli
       - setup
